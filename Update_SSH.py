@@ -5,8 +5,8 @@ import os
 import getpass
 
 # Setup
-ssh_user = "cassi"
-ip_adress = "192.168.0.19"
+ssh_user = "xxxx"
+ip_adress = "xxx.xxx.xxx.xxx"
 
 # Initialization variable
 ssh_connection = "ssh " + ssh_user + "@" + ip_adress
