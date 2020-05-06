@@ -5,5 +5,7 @@ sudo apt-get install python3 python-dev python3-dev \
      
      sudo pip install virtualenvwrapper
      
+     sudo apt-get install python3.x-dev
+     
      passer en root et ensuite compiler et installer cx freeze
     
