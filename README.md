@@ -7,5 +7,5 @@ This Python script allows you to update a Linux machine on your network.
 # Update_Linux.py
 This Python script allows you to update your linux machine without entering a command line.
 
-Execute scripts in a terminal.
-Each generates a Log file in the user's folder.
+# Execute scripts in a terminal.
+# Each generates a Log file in the user's folder.
