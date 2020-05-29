@@ -4,7 +4,7 @@ import datetime
 import os
 import getpass
 
-# Setup
+# Settings
 ssh_user = "xxxx"  # Define the SSH user to use.
 ip_adress = "xxx.xxx.xxx.xxx" # Set the ip address to use.
 
@@ -20,7 +20,7 @@ logs_file = folder_location + "/" + "Log_Upgrade_SSH" + ".txt"
 logs_file_rename = folder_location + "/" + "Log_Upgrade_SSH_" + date_log + ".txt"
 
 
-# Functions
+# Function to manage the log file.
 def manage_logs(log_file):
     # Check if the folder does not exist.
     if not os.path.exists(folder_location):
@@ -42,24 +42,27 @@ def manage_logs(log_file):
             os.rename(r'' + logs_file, r'' + logs_file_rename)
 
 
+# Function to organize the date.
 def date_organization():
     unorganized_date = datetime.datetime.now()
     date = unorganized_date.strftime("%d-%m-%Y à %H:%M:%S")
     return date
 
 
+# Function to write result in log file.
 def write_result(log_file, message_return):
     file = open(log_file, "a")
     file.write(message_return + "\n")
     file.close()
 
 
-# Code principal
+# Main code.
 manage_logs(logs_file)
 for command in [command_update, command_upgrade, command_auto_remove]:
     return_sub_process_run = subprocess.run(command, shell=True)
     return_code = return_sub_process_run.returncode
     date_result = date_organization()
+    # Check the return code.
     if return_code == 0:
         message = "OK : " + date_result + ", [" + command + "]"
         write_result(logs_file, message)
