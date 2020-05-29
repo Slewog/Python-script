@@ -5,8 +5,8 @@ import os
 import getpass
 
 # Setup
-ssh_user = "xxxx"
-ip_adress = "xxx.xxx.xxx.xxx"
+ssh_user = "xxxx"  # Define the SSH user to use.
+ip_adress = "xxx.xxx.xxx.xxx" # Set the ip address to use.
 
 # Initialization variable
 ssh_connection = "ssh " + ssh_user + "@" + ip_adress
@@ -22,16 +22,23 @@ logs_file_rename = folder_location + "/" + "Log_Upgrade_SSH_" + date_log + ".txt
 
 # Functions
 def manage_logs(log_file):
-    if not os.path.exists(folder_location):  # Checks if the folder exists
+    # Check if the folder does not exist.
+    if not os.path.exists(folder_location):
+        # If it does not exist create it.
         os.mkdir(folder_location)
-    if not os.path.exists(log_file):  # Checks if the file exists
-        file = open(log_file, "w+")
+    # Check if the file does not exist.
+    if not os.path.exists(log_file):
+        # If it does not exist create it.
+        file = open(log_file, "w+") 
         file.close()
-    else:  # Otherwise he creates it
+    # otherwise open it.
+    else:  
         file = open(log_file, "r")
         number_line = len(open(log_file).readlines())
         file.close()
-        if number_line > 97:     # If the file is longer than 97 lines we rename it
+        # Check if the number of lines is greater than 97.
+        if number_line > 97:
+            # If so, rename the file.
             os.rename(r'' + logs_file, r'' + logs_file_rename)
 
 
